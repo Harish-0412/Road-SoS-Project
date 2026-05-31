@@ -1,0 +1,48 @@
+# Flutter-related
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+
+# Android-related
+*.keystore
+*.jks
+*.p12
+*.key
+*.gpg
+*.apk
+*.ap_
+*.aab
+*.dex
+/android/local.properties
+/android/key.properties
+/android/app/src/main/res/values/google-services.json
+
+# iOS-related
+/ios/Flutter/Generated.xcconfig
+/ios/Flutter/flutter_export_environment.sh
+/ios/Flutter/App.framework
+/ios/Flutter/App.podspec
+/ios/Flutter/engine_family
+/ios/Frameworks
+/ios/Pods
+/ios/.symlinks
+/ios/Config/
+
+# Web-related
+/web/index.html.d
+
+# Common
+.DS_Store
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.project
+.settings/
+.classpath
+node_modules/
