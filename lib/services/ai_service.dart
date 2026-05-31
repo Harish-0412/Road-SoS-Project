@@ -1,25 +1,31 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import '../config.dart';
 
 class AIService {
   // Replace with actual API keys or move to a secure config file
-  static const String _groqApiKey = 'YOUR_GROQ_API_KEY';
-  static const String _geminiApiKey = 'YOUR_GEMINI_API_KEY';
+  static const String _groqApiKey = AppConfig.groqApiKey;
+  static const String _geminiApiKey = AppConfig.geminiApiKey;
 
   static const String _groqUrl = 'https://api.groq.com/openai/v1/chat/completions';
   static const String _geminiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
 
   /// Emergency Chat Assistant - Handles general queries and breakdown scenarios
   static Future<String> getAIResponse(String query) async {
+    print('DEBUG: Getting AI Response for query: $query');
     try {
-      return await _callGroq(query);
+      final response = await _callGroq(query);
+      print('DEBUG: Groq call successful');
+      return response;
     } catch (e) {
-      print('Groq failed, trying Gemini...');
+      print('DEBUG: Groq failed, trying Gemini... Error: $e');
       try {
-        return await _callGemini(query);
+        final response = await _callGemini(query);
+        print('DEBUG: Gemini call successful');
+        return response;
       } catch (e2) {
-        print('Both APIs failed. Error 1: $e. Error 2: $e2');
+        print('DEBUG: Both Cloud APIs failed. Falling back to local logic. Error 2: $e2');
         return _getLocalFallback(query);
       }
     }
@@ -53,7 +59,9 @@ class AIService {
   }
 
   static Future<String> _callGroq(String query) async {
-    if (_groqApiKey == 'YOUR_GROQ_API_KEY') throw Exception('API key not set');
+    if (_groqApiKey == 'YOUR_GROQ_API_KEY' || _groqApiKey.isEmpty) {
+      throw Exception('Groq API key not set');
+    }
 
     print('Calling Groq API...');
     try {
@@ -85,7 +93,9 @@ class AIService {
   }
 
   static Future<String> _callGemini(String query) async {
-    if (_geminiApiKey == 'YOUR_GEMINI_API_KEY') throw Exception('API key not set');
+    if (_geminiApiKey == 'YOUR_GEMINI_API_KEY' || _geminiApiKey.isEmpty) {
+      throw Exception('Gemini API key not set');
+    }
 
     print('Calling Gemini API...');
     try {
