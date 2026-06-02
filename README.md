@@ -41,8 +41,6 @@
 8. [Project Directory Structure](#8-project-directory-structure)
 9. [Mathematical Foundations](#9-mathematical-foundations)
 10. [Setup & Installation](#10-setup--installation)
-11. [License & Acknowledgements](#11-license--acknowledgements)
-
 ---
 
 ## 1. Executive Summary
@@ -754,34 +752,3 @@ flutter build apk --release --split-per-abi
 ```
 
 ---
-
-## 11. License & Acknowledgements
-
-```
-RoadSoS — Infrastructure-Free Emergency Response System
-Copyright © 2024 RoadSoS Development Team
-
-Licensed under the Apache License, Version 2.0 — see LICENSE for full terms.
-```
-
-**Acknowledgements:**
-
-- **IIT Madras CoERS** — Technical review framework and road safety benchmarking standards
-- **World Health Organization** — Emergency Trauma Care protocol corpus
-- **Ministry of Road Transport & Highways (MoRTH)** — Road accident rescue guideline corpus
-- **Google DeepMind** — Gemma-3 base model weights (Apache 2.0)
-- **GGML / llama.cpp** — Mobile-optimized quantized inference runtime
-
----
-
-<div align="center">
-
-**Developed for IIT Madras CoERS Technical Review**  
-*Advancing road safety through deterministic, infrastructure-independent emergency response*
-
-[![IIT Madras CoERS](https://img.shields.io/badge/IIT%20Madras-CoERS-orange)](https://www.iitm.ac.in)
-[![Flutter](https://img.shields.io/badge/Flutter-Cross%20Platform-02569B?logo=flutter)](https://flutter.dev)
-[![Offline First](https://img.shields.io/badge/Architecture-Offline%20First-success)](.)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue)](LICENSE)
-
-</div>
